@@ -37,30 +37,24 @@ function showPlaces(info) {
 function detailsOf(venues){
   venues.forEach(function (element, index, array) {
     console.log(venues[index].venue );
-    // $('#places .venue').append('<p class="name">'+venues[index].venue.name+'</p>');
     document.getElementsByClassName('venue')[0].innerHTML += '<p class="name">'+venues[index].venue.name+'</p>';
-    // $('#places .venue').append('<p class="rating">'+ venues[index].venue.rating+'</p>' );
+
     document.getElementsByClassName('venue')[0].innerHTML += '<p class="rating">'+ venues[index].venue.rating+'</p>';
+
     if (typeof venues[index].venue.url !== 'undefined') {
-        // $('#places .venue').append('<a class="url" href='+ venues[index].venue.url+'>Website</a>');
-        document.getElementsByClassName('venue')[0].innerHTML += '<a class="url" href='+ venues[index].venue.url+'>Website</a>' ;
+      document.getElementsByClassName('venue')[0].innerHTML += '<a class="url" href='+ venues[index].venue.url+'>Website</a>' ;
     }
-    // $('#places .venue').append('<img src='+ venues[index].venue.photos+'</img>');
   });
 }
 
 function noLocationExist(location) {
-  // $('.error').show();
   document.getElementById("error").style.display = '';
-  // document.getElementById("error").display = '';
-  // $('.error').html("No location by the name, " + location + ", exists.");
   document.getElementById("error").innerHTML = "No location by the name, " + location + ", exists.";
 }
 
 function SetFocus(){
-    var locationElement = document.getElementById("location");
-
-    if(locationElement !== null){
-        locationElement.focus();
-    }
+  var locationElement = document.getElementById("location");
+  if(locationElement !== null){
+    locationElement.focus();
+  }
 }
