@@ -1,13 +1,32 @@
-function inputKeyUp(e) {
-  e.which = e.which || e.keyCode;
-  if(e.which == 13) {
-    document.getElementById("error").innerHTML = '';
+document.addEventListener("DOMContentLoaded", function() {
+  _SetFocus();
+});
 
-    var location = document.getElementById("location").value;
+function inputKeyUp(event) {
+  if(event.which == 13) {
+    _clearError();
+    var location = _storeLocationInput();
     document.getElementById("location").value = '';
-
     getFourSquareInfo(location);
-
-    document.getElementsByClassName("venue")[0].innerHTML = '';
+    _clearResults();
   }
+}
+
+function _SetFocus() {
+  var locationElement = document.getElementById("location");
+  if(locationElement !== null){
+    locationElement.focus();
+  }
+}
+
+function _clearError() {
+  document.getElementById("error").innerHTML = '';
+}
+
+function _storeLocationInput (){
+  return document.getElementById("location").value;
+}
+
+function _clearResults(){
+  document.getElementsByClassName("venue")[0].innerHTML = '';
 }
