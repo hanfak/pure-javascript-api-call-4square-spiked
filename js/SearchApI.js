@@ -13,7 +13,7 @@ function getFourSquareInfo(location) {
   xmlhttp.onerror = function (e) {
     console.error(xmlhttp.statusText);
   };
-  
+
   xmlhttp.send(null);
 }
 
